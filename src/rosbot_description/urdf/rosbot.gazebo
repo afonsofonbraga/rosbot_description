@@ -5,7 +5,7 @@
     <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
       <robotNamespace>${namespace}/</robotNamespace>
       <updateRate>10.0</updateRate>
-      <robotBaseFrame>${namespace}/base_link</robotBaseFrame>
+      <robotBaseFrame>base_link</robotBaseFrame>
       <wheelSeparation>0.20</wheelSeparation>
       <wheelDiameter>0.08</wheelDiameter>
       <torque>5</torque>
@@ -17,7 +17,7 @@
       <commandTopic>cmd_vel</commandTopic>
       <broadcastTF>true</broadcastTF>
       <odometryTopic>odom</odometryTopic>
-      <odometryFrame>${namespace}/odom</odometryFrame>
+      <odometryFrame>odom</odometryFrame>
       <covariance_x>0.000100</covariance_x>
       <covariance_y>0.000100</covariance_y>
       <covariance_yaw>0.010000</covariance_yaw>
@@ -63,7 +63,7 @@
     <material>Gazebo/Black</material>
   </gazebo>
 
-  <!-- astra -->
+  <!-- astra 
 
   <gazebo reference="camera_link">
     <sensor type="depth" name="openni_camera_camera">
@@ -107,7 +107,7 @@
         <focalLength>0.0</focalLength>
       </plugin>
     </sensor>
-  </gazebo>
+  </gazebo> -->
 
   <!-- If you cant't use your GPU comment RpLidar using GPU and uncomment RpLidar using CPU 
     gazebo plugin. -->
@@ -192,7 +192,8 @@
       <ray>
         <scan>
           <horizontal>
-            <samples>720</samples>
+            <!--<samples>720</samples>-->
+            <samples>180</samples>
             <resolution>1</resolution>
             <min_angle>-3.14159265</min_angle>
             <max_angle>3.14159265</max_angle>
@@ -210,7 +211,7 @@
         </noise>
       </ray>
       <plugin name="gazebo_ros_head_rplidar_controller" filename="libgazebo_ros_laser.so">
-        <topicName>scan</topicName>
+        <topicName>laser/scan</topicName>
         <frameName>laser</frameName>
       </plugin>
     </sensor>
